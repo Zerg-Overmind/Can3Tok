@@ -1,7 +1,4 @@
-# Can3Tok: Canonical 3D Tokenization and Latent Modeling of Scene-Level 3D Gaussians
 <img src="image/USC-Logos.png" width=120px /><img src="./image/Adobe-Logos.png" width=120px />
-
-## Overal Instruction
 
 <div align="center">
 
@@ -20,5 +17,6 @@
     <sup>1</sup>USC <sup>2</sup>Adobe Research
 </p>
 
-
 </div>
+
+## Overal Instruction
