@@ -18,5 +18,43 @@
 </p>
 
 </div>
+In this project, we introduce Can3Tok, the first 3D scene-level variational autoencoder (VAE) capable of encoding a large number of Gaussian primitives into a low-dimensional latent embedding, which enables high-quality and efficient generative modeling of complex 3D scenes.
 
-## Overal Instruction
+## Overall Instruction
+1. We firstly run structure-from-motion (SfM) on [DL3DV-10K](https://github.com/DL3DV-10K/Dataset) dataset with [COLMAP](https://colmap.github.io/) to get the camera parameters and sparse point clouds i.e. SfM points. 
+2. Then, two options are allowed for applying 3DGS optimization on Dl3DV-10K dataset with camera parameters and SfM points initialized as above.
+   - Option 1: We first normalize camera parameters (centers/translation only) and SfM points into a unit (or a predefined radius `target_radius` in the code) sphere, and then run 3DGS optimization afterwards. 
+   - Option 2: Or, we can run 3DGS optimization first, and then normalize camera parameters (centers/translation only) and the optimized 3D Gaussians into a unit (or a predefined radius `target_radius` in the code) sphere as a post-processing by normalizing their positions and anisotropic scaling factors. 
+  Please refer to `sfm_camera_norm.py` for the implementation of normalization. Additionally, please refer to our `train.py` and related scripts for 3DGS optimization, which ensure that the output filenames match the corresponding input scenes from the DL3DV-10K dataset.
+3. (optional) After normalizating camera parameters and 3D Gaussians, we can optionally run Semantics-aware filtering to filter out the 3D Gaussians that are not relevant to the main objects of interest in the scene. Please refer to `groundedSAM.py` for the implementation of semantics-aware filtering.
+4. Finally, we can run Can3Tok training and testing with 3D Gaussians (optionally filtered) as input. Please refer to `gs_can3tok.py` for the implementation.
+
+## Cloning the Repository
+```bash
+git clone https://github.com/Zerg-Overmind/Can3Tok.git 
+cd Can3Tok
+```
+
+## Environment Installation
+We provide a conda environment file for easy installation. Please run the following command to create the environment:
+```bash 
+conda create -n can3tok python=3.9
+```
+and then activate it:
+```bash
+conda activate can3tok
+```
+
+##
+
+
+## Citation
+If you find our code or paper useful, please consider citing:
+```
+@INPROCEEDINGS{gao2023iCCV,
+  author = {Quankai Gao and Iliyan Georgiev and Tuanfeng Y. Wang and Krishna Kumar Singh and Ulrich Neumann and Jae Shin Yoon},
+  title = {Can3Tok: Canonical 3D Tokenization and Latent Modeling of Scene-Level 3D Gaussians},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year = {2025}
+}
+```
