@@ -26,7 +26,7 @@ In this project, we introduce Can3Tok, the first 3D scene-level variational auto
    - Option 1: We first normalize camera parameters (centers/translation only) and SfM points into a unit (or a predefined radius `target_radius` in the code) sphere, and then run 3DGS optimization afterwards. 
    - Option 2: Or, we can run 3DGS optimization first, and then normalize camera parameters (centers/translation only) and the optimized 3D Gaussians into a unit (or a predefined radius `target_radius` in the code) sphere as a post-processing by normalizing their positions and anisotropic scaling factors. 
   Please refer to `sfm_camera_norm.py` for the implementation of normalization. Additionally, please refer to our `train.py` and related scripts for 3DGS optimization, which ensure that the output filenames match the corresponding input scenes from the DL3DV-10K dataset.
-3. (optional) After normalizating camera parameters and 3D Gaussians, we can optionally run Semantics-aware filtering to filter out the 3D Gaussians that are not relevant to the main objects of interest in the scene. Please refer to `groundedSAM.py` for the implementation of semantics-aware filtering.
+3. (optional) After normalizating camera parameters and 3D Gaussians, we can optionally run Semantics-aware filtering with [lang_sam](https://github.com/luca-medeiros/lang-segment-anything) to filter out the 3D Gaussians that are not relevant to the main objects of interest in the scene. Please refer to `groundedSAM.py` for the implementation of semantics-aware filtering.
 4. Finally, we can run Can3Tok training and testing with 3D Gaussians (optionally filtered) as input. Please refer to `gs_can3tok.py` for the implementation.
 
 ## Cloning the Repository
@@ -38,13 +38,22 @@ cd Can3Tok
 ## Environment Installation
 We provide a conda environment file for easy installation. Please run the following command to create the environment:
 ```bash 
-conda create -n can3tok python=3.9
+bash env_in_one_shot.sh
 ```
 and then activate it:
 ```bash
 conda activate can3tok
 ```
+Please refer to the official repo to install [lang-sam](https://github.com/luca-medeiros/lang-segment-anything) for implementing our Semantics-aware filtering as in `groundedSAM.py`. Note that the pytorch version compatible with the latest lang-sam is `torch==2.4.1+cu121` instead of `torch==2.1.0+cu121` in our `env_in_one_shot.sh`, please modify the environment file accordingly if you want to use the latest lang-sam.
+##
 
+
+## Training and Testing
+To train Can3Tok, please run the following command:
+```bash
+python gs_can3tok.py
+```
+where you might want to modify the path pointing to the 3D Gaussians path and output path in the script.
 ##
 
 
