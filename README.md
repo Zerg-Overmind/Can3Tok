@@ -25,6 +25,14 @@
 </div>
 
 <br>
+
+<div align="center">
+
+# (Code Will be Released at [Adobe's Repo](https://github.com/adobe-research) Soon)
+
+</div>
+
+
 In this project, we introduce Can3Tok, the first 3D scene-level variational autoencoder (VAE) capable of encoding a large number of Gaussian primitives into a low-dimensional latent embedding, which enables high-quality and efficient generative modeling of complex 3D scenes.
 
 ## Cloning the Repository
