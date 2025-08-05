@@ -20,8 +20,8 @@
 </div>
 
 <div align="center">
-    <a href="https://github.com/Zerg-Overmind/Can3Tok"><strong>Project Page</strong></a> |
-    <a href="https://github.com/Zerg-Overmind/Can3Tok"><strong>Paper</strong></a> 
+    <a href="https://zerg-overmind.github.io/Can3Tok.github.io/"><strong>Project Page</strong></a> |
+    <a href="https://arxiv.org/abs/2508.01464"><strong>Paper</strong></a> 
 </div>
 
 <br>
