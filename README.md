@@ -20,7 +20,7 @@
 </div>
 
 <div align="center">
-    <a href="https://github.com/Zerg-Overmind/Can3Tok"><strong>Project Page</strong></a> |
+    <a href="Can3Tok.github.io"><strong>Project Page</strong></a> |
     <a href="https://github.com/Zerg-Overmind/Can3Tok"><strong>Paper</strong></a> 
 </div>
 
@@ -28,7 +28,7 @@
 
 <div align="center">
 
-# (Code Will be Released at [Adobe's Repo](https://github.com/adobe-research) Soon)
+# (Code is in [Adobe's Repo](https://github.com/adobe-research/Can3Tok))
 
 </div>
 
